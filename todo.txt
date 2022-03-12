@@ -1,5 +1,5 @@
 - Contact form
-- Product image
+- Product image resizing (width: 120px)
 - Time Countdown for offer (homepage)
 - Shopping cart (Pop Up)
 - Checkout Form (Send Email)
