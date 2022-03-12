@@ -89,7 +89,7 @@
 		<!-- end header -->
 
 		<!-- breadcrumb-section -->
-		<div class="breadcrumb-section breadcrumb-bg">
+		<div class="breadcrumb-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2 text-center">
@@ -117,14 +117,21 @@
 						</div>
 						<div id="form_status"></div>
 						<div class="contact-form">
-							<form type="POST" id="fruitkha-contact" onSubmit="">
+							<form type="POST" id="contactForm" onSubmit="">
 								<p>
-									<input type="text" placeholder="Name" name="name" id="name" />
+									<input
+										type="text"
+										placeholder="Name *"
+										name="name"
+										id="name"
+										required
+									/>
 									<input
 										type="email"
-										placeholder="Email"
+										placeholder="Email *"
 										name="email"
 										id="email"
+										required
 									/>
 								</p>
 								<p>
@@ -147,7 +154,8 @@
 										id="message"
 										cols="30"
 										rows="10"
-										placeholder="Message"
+										placeholder="Message *"
+										required
 									></textarea>
 								</p>
 								<input type="hidden" name="token" value="FsWga4&@f6aw" />
@@ -389,6 +397,33 @@
 		<script src="assets/js/jquery.meanmenu.min.js"></script>
 		<!-- sticker js -->
 		<script src="assets/js/sticker.js"></script>
+		<!-- send mail -->
+		<script>
+			$(document).ready(function () {
+				$('form#contactForm').on('submit', function (e) {
+					e.preventDefault();
+					jQuery.ajax({
+						url: 'mail.php',
+						type: 'post',
+						data: jQuery('form#contactForm').serialize(),
+						complete: function (data) {
+							jQuery('#form_status').html(data.responseText);
+							jQuery('#contactForm').find('input,textarea').attr({ value: '' });
+							jQuery('#contactForm').css({ opacity: 1 });
+							jQuery('#contactForm').remove();
+						},
+					});
+					jQuery('#form_status').html(
+						'<span class="loading">Sending your message...</span>'
+					);
+					jQuery('#contactForm').animate({ opacity: 0.3 });
+					jQuery('#contactForm')
+						.find('input,textarea,button')
+						.css('border', 'none')
+						.attr({ disabled: '' });
+				});
+			});
+		</script>
 		<!-- main js -->
 		<script src="assets/js/default.js"></script>
 	</body>

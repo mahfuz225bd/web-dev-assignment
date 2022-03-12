@@ -511,9 +511,9 @@ button.cart-btn[disabled]:hover {
 	margin-bottom: 80px;
 }
 
-.breadcrumb-bg {
+/* .breadcrumb-bg {
 	background-image: url(../img/breadcrumb-bg.jpg);
-}
+} */
 
 .breadcrumb-text p {
 	color: #02a145;
