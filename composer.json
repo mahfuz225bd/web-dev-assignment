@@ -1,0 +1,15 @@
+{
+    "name": "mahfu/web-dev-assignment",
+    "autoload": {
+        "psr-4": {
+            "Mahfu\\WebDevAssignment\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mahfuz",
+            "email": "mahfuz01bd@gmail.com"
+        }
+    ],
+    "require": {}
+}
