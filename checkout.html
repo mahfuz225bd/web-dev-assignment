@@ -33,6 +33,12 @@
 		<link rel="stylesheet" href="assets/css/default.css" />
 		<!-- responsive -->
 		<link rel="stylesheet" href="assets/css/responsive.css" />
+		
+		<style>
+			.payment-label{
+				font-size: large;
+			}
+		</style>
 	</head>
 	<body>
 		<!--PreLoader-->
@@ -105,9 +111,10 @@
 		<!-- check out section -->
 
 		<div class="checkout-section mt-150 mb-150">
+			<form id="checkoutForm">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-8">						
 						<div class="checkout-accordion-wrap">
 							<div class="accordion" id="accordionExample">
 								<div class="card single-accordion">
@@ -132,24 +139,21 @@
 										aria-labelledby="headingOne"
 										data-parent="#accordionExample"
 									>
-										<div class="card-body">
-											<div class="billing-address-form">
-												<form action="index.html">
-													<p><input type="text" placeholder="Name" /></p>
-													<p><input type="email" placeholder="Email" /></p>
-													<p><input type="text" placeholder="Address" /></p>
-													<p><input type="tel" placeholder="Phone" /></p>
+										<div class="card-body">												
+													<p><input class="form-control form-control-lg" type="text" name="name" placeholder="Name" /></p>
+													<p><input class="form-control form-control-lg" type="email" name="email" placeholder="Email" /></p>
+													<p><input class="form-control form-control-lg" type="text" name="billingAddress" placeholder="Address" /></p>
+													<p><input class="form-control form-control-lg" type="tel" name="phone" placeholder="Phone" /></p>
 													<p>
 														<textarea
-															name="bill"
+															class="form-control form-control-lg"
+															name="note"
 															id="bill"
 															cols="30"
-															rows="10"
+															rows="5"
 															placeholder="Say Something"
 														></textarea>
 													</p>
-												</form>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -170,13 +174,22 @@
 									</div>
 									<div
 										id="collapseTwo"
-										class="collapse"
+										class="collapse show"
 										aria-labelledby="headingTwo"
 										data-parent="#accordionExample"
 									>
 										<div class="card-body">
 											<div class="shipping-address-form">
-												<p>Your shipping address form is here.</p>
+												<p>
+													<textarea
+														class="form-control form-control-lg"
+														name="shippingAddress"
+														id="shippingAddress"
+														cols="30"
+														rows="5"
+														placeholder="Shipping Address"
+													></textarea>
+												</p>
 											</div>
 										</div>
 									</div>
@@ -198,7 +211,7 @@
 									</div>
 									<div
 										id="collapseThree"
-										class="collapse"
+										class="collapse show"
 										aria-labelledby="headingThree"
 										data-parent="#accordionExample"
 									>
@@ -212,7 +225,7 @@
 														id="cod"
 														name="payment"
 													/>
-													<label class="payment-label" for="cod">
+													<label class="form-check-label payment-label" for="cod">
 														Cash On Delivery
 													</label>
 													<br />
@@ -223,7 +236,7 @@
 														id="creditCard"
 														name="payment"
 													/>
-													<label class="payment-label" for="creditCard">
+													<label class="form-check-label payment-label" for="creditCard">
 														Credit Cart
 													</label>
 													<br />
@@ -234,7 +247,7 @@
 														id="bkash"
 														name="payment"
 													/>
-													<label class="payment-label" for="bkash">
+													<label class="form-check-label payment-label" for="bkash">
 														Bkash
 													</label>
 												</div>
@@ -244,6 +257,7 @@
 								</div>
 							</div>
 						</div>
+					
 					</div>
 
 					<div class="col-lg-4">
@@ -288,11 +302,12 @@
 									</tr>
 								</tbody>
 							</table>
-							<a href="#" class="boxed-btn">Place Order</a>
+							<a href="#" class="boxed-btn" id="placeOrder">Place Order</a>
 						</div>
 					</div>
 				</div>
 			</div>
+		</form>
 		</div>
 		<!-- end check out section -->
 
@@ -483,27 +498,27 @@
 		<script src="assets/js/jquery.meanmenu.min.js"></script>
 		<!-- sticker js -->
 		<script src="assets/js/sticker.js"></script>
-		<!-- send mail -->
+		<!-- send order -->
 		<script>
 			$(document).ready(function () {
-				$('form#contactForm').on('submit', function (e) {
+				$('#placeOrder').on('click', function (e) {
 					e.preventDefault();
 					jQuery.ajax({
-						url: 'mail.php',
-						type: 'post',
-						data: jQuery('form#contactForm').serialize(),
+						url: 'send_order.php',
+						type: 'get',
+						data: jQuery('form#checkoutForm').serialize(),
 						complete: function (data) {
 							jQuery('#form_status').html(data.responseText);
-							jQuery('#contactForm').find('input,textarea').attr({ value: '' });
-							jQuery('#contactForm').css({ opacity: 1 });
-							jQuery('#contactForm').remove();
+							jQuery('#checkoutForm').find('input,textarea').attr({ value: '' });
+							jQuery('#checkoutForm').css({ opacity: 1 });
+							jQuery('#checkoutForm').remove();
 						},
 					});
 					jQuery('#form_status').html(
 						'<span class="loading">Sending your message...</span>'
 					);
-					jQuery('#contactForm').animate({ opacity: 0.3 });
-					jQuery('#contactForm')
+					jQuery('#checkoutForm').animate({ opacity: 0.3 });
+					jQuery('#checkoutForm')
 						.find('input,textarea,button')
 						.css('border', 'none')
 						.attr({ disabled: '' });
