@@ -77,6 +77,27 @@
 			},
 		});
 
+		// toggle cart
+		const toggleCart = document.querySelector('#btnCart');
+		toggleCart.addEventListener('click', () => {
+			const cartContainer = document.querySelector('.cart-area .container');
+			if (cartContainer.style.display === 'block') {
+				cartContainer.style.display = 'none';
+			} else {
+				cartContainer.style.display = 'block';
+			}
+		});
+
+		// change qty
+		$('#qtyInput').bind('keyup mouseup', function () {
+			var getUnitPrice = Number(
+				document.getElementById(this.id).parentNode.childNodes[2].innerHTML
+			);
+			var getQty = Number(this.value);
+			document.getElementById(this.id).parentNode.childNodes[4].innerHTML =
+				String(getUnitPrice * getQty);
+		});
+
 		// count down
 		if ($('.time-countdown').length) {
 			$('.time-countdown').each(function () {
@@ -123,7 +144,7 @@
 
 		// disabled cart-btn
 		$('.cart-btn[disabled]').each(function () {
-            this.innerHTML = '<i class="fas fa-times"></i> Not Available'
+			this.innerHTML = '<i class="fas fa-times"></i> Not Available';
 		});
 
 		// light box

@@ -69,10 +69,14 @@
 									<li><a href="./index.html#shop">Shop</a></li>
 									<li>
 										<div class="header-icons">
-											<a class="shopping-cart" href="javascript:void(0);"
+											<a
+												class="shopping-cart"
+												href="javascript:void(0);"
+												id="btnCart"
 												><i class="fas fa-shopping-cart"></i> (<span
+													id="orderCount"
 													id="cartCount"
-													>0</span
+													>3</span
 												>)
 											</a>
 										</div>
@@ -87,6 +91,39 @@
 			</div>
 		</div>
 		<!-- end header -->
+
+		<!-- cart-area -->
+		<div class="cart-area">
+			<div class="container">
+				<h6>
+					<span style="color: black">
+						<i class="fa fa-shopping-cart"></i>
+						<b><span id="orderCount">3</span></b>
+					</span>
+					<span style="float: right">
+						Qty. x Unit Price = Price
+						
+					</span>
+				</h6>
+				<p class="cartItem">
+					<a href="#">Himsagar 20kg <span class="price"><input type="number" id="qtyInput" min="1" value="1" /> x &#2547;<span id="unitPrice">825</span> = &#2547;<output id="price">825</output></span>
+				</p>
+				<p class="cartItem">
+					<a href="#">Amrapali 20kg <span class="price"><input type="number" id="qtyInput" min="1" value="1" /> x &#2547;<span id="unitPrice">900</span> = &#2547;<output id="price">900</output></span>
+				</p>
+				<p class="cartItem">
+					<a href="#">Mohonvog 20kg <span class="price"><input type="number" id="qtyInput" min="1" value="1" /> x &#2547;<span id="unitPrice">500</span> = &#2547;<output id="price">500</output></span>
+				</p>
+				<hr />
+				<p>
+					Total <span class="price" style="color: black"><b>&#2547;<output id="totalPrice">2,250</output></b></span>
+				</p>
+				<div class="text-center mt-3">
+					<a class="btn btn-success text-white" href="./checkout.html">Continue to Chekout</a>
+				</div>
+			</div>
+		</div>
+		<!-- end cart area -->
 
 		<!-- hero area -->
 		<div class="hero-area hero-bg">

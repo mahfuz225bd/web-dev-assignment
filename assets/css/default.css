@@ -2808,3 +2808,64 @@ table.order-details tbody td {
 	vertical-align: middle;
 	width: 100%;
 }
+
+/* cart area */
+
+.cart-area .container {
+	background-color: #fefefe;
+	padding: 15px 20px 15px 20px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	width: 325px;
+	position: fixed;
+	right: 30px;
+	margin-top: 4px;
+	/* By default, not to display on the page */
+	display: none;
+}
+
+.cart-area {
+	position: absolute;
+	top: 75px;
+	right: 25px;
+	z-index: 1000;
+}
+
+.cart-area .container a {
+	text-decoration: none;
+}
+
+.cart-area .container a:visited {
+	color: navy;
+}
+
+.cart-area .container a:hover {
+	color: red;
+}
+
+.cart-area .container span.price {
+	float: right;
+	color: grey;
+}
+
+.cart-area .container input {
+	font-size: inherit;
+	padding: 0;
+	border-radius: none;
+	width: 37px;
+}
+
+.cart-area .container .btn-checkout {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #02a145;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+}
+
+.cart-area .container .btn-checkout:hover {
+	opacity: 0.9;
+}
