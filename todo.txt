@@ -1,3 +1,2 @@
-- Contact form (PHPMailer using composer)
 - Shopping cart (Pop Up)
 - Checkout Form (Send Email)

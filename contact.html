@@ -117,7 +117,7 @@
 						</div>
 						<div id="form_status"></div>
 						<div class="contact-form">
-							<form type="POST" id="contactForm" onSubmit="">
+							<form type="POST" id="contactForm">
 								<p>
 									<input
 										type="text"
@@ -156,6 +156,7 @@
 										rows="10"
 										placeholder="Message *"
 										required
+										type="text/plaintext"
 									></textarea>
 								</p>
 								<input type="hidden" name="token" value="FsWga4&@f6aw" />
@@ -404,7 +405,7 @@
 					e.preventDefault();
 					jQuery.ajax({
 						url: 'mail.php',
-						type: 'post',
+						type: 'get',
 						data: jQuery('form#contactForm').serialize(),
 						complete: function (data) {
 							jQuery('#form_status').html(data.responseText);
