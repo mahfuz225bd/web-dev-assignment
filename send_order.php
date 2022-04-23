@@ -13,6 +13,7 @@ $phoneNumber = $_GET['phone'];
 $note = $_GET['note'];
 $shippingAddress = $_GET['shippingAddress'];
 $payment = $_GET['payment'];
+$paymentDetails = $payment == 'mobileBanking' ? $_GET['mobileBankingAccount'] . ' - ' . $_GET['accType']. ' - ' . $_GET['accNumber'] .'<br />' : '';
 $orderDetails = $_GET['hiddenOrderDetails'];
 
 $message = sprintf("
@@ -25,10 +26,11 @@ Say Something: %s <br/>
 Shipping Address: %s <br/>
 ====================================================================== <br/>
 Payment Method: %s <br/>
+%s
 ====================================================================== <br/>
 Order Details: <br/>
 %s
-", $name, $email, $billingAddress, $phoneNumber, $note, $shippingAddress, $payment, $orderDetails);
+", $name, $email, $billingAddress, $phoneNumber, $note, $shippingAddress, $payment, $paymentDetails, $orderDetails);
 
 //$mail->SMTPDebug = 3;                                 // Enable verbose debug output
 

@@ -75,12 +75,12 @@
 									<li><a href="./index.html#shop">Shop</a></li>
 									<li>
 										<div class="header-icons">
-											<a class="shopping-cart" href="javascript:void(0);"
+											<span class="shopping-cart text-white" href="javascript:void(0);"
 												><i class="fas fa-shopping-cart"></i> (<span
 													id="cartCount"
 													>0</span
 												>)
-											</a>
+											</span>
 										</div>
 									</li>
 								</ul>
@@ -229,31 +229,32 @@
 													/>
 													<label class="form-check-label payment-label" for="cod">
 														Cash On Delivery
-													</label>
+													</label>													
 													<br />
 													<input
 														class="payment"
 														type="radio"
-														value="Credit Card"
-														id="creditCard"
+														value="mobileBanking"
+														id="mobileBanking"
 														name="payment"
 														required
 													/>
-													<label class="form-check-label payment-label" for="creditCard">
-														Credit Cart
+													<label class="form-check-label payment-label" for="mobileBanking">
+														Mobile Banking
 													</label>
-													<br />
-													<input
-														class="payment"
-														type="radio"
-														value="Bkash"
-														id="bkash"
-														name="payment"
-														required
-													/>
-													<label class="form-check-label payment-label" for="bkash">
-														Bkash
-													</label>
+													<div class="input-group" id="mobileBankingInfo">
+														<div class="input-group-prepend">
+															<select class="form-control" id="mobileBankingAccount" name="mobileBankingAccount"  style="width: 125px;">
+																<option value="Bkash">Bkash</option>
+																<option value="Nagad">Nagad</option>
+															</select>
+															<select class="form-control" name="accType"  style="width: 125px;">
+																<option value="Personal">Personal</option>
+																<option value="Agent">Agent</option>
+															</select>
+															<input type="text" class="form-control" name="accNumber"  style="width: 220px;" placeholder="Account Number" required />
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -506,8 +507,21 @@
 		<script src="assets/js/sticker.js"></script>
 		<!-- send order -->
 		<script>
-			
+			function disableMobileBanking(isTrue){
+				if (isTrue) {
+					$('#mobileBankingInfo select, #mobileBankingInfo input').each(function() {
+						this.disabled = true;						
+					});
+				} else {					
+					$('#mobileBankingInfo select, #mobileBankingInfo input').each(function() {
+						this.disabled = false;
+					});
+				}
+			}		
 			$(document).ready(function () {
+				
+				disableMobileBanking(true);
+
 				$('#hiddenOrderDetails').val($('#orderDetails').html());
 
 				$('form#checkoutForm').on('submit', function (e) {					
@@ -533,6 +547,13 @@
 						.css('border', 'none')
 						.attr({ disabled: '' });
 				});
+
+				$('#cod').on('click', function(e) {
+					disableMobileBanking(true);					
+				})
+				$('#mobileBanking').on('click', function(e) {
+					disableMobileBanking(false);
+				})
 			});
 		</script>
 		<!-- main js -->

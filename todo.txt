@@ -1,1 +1,2 @@
 - Shopping cart (Pop Up)
+- Close Shopping cart (Pop Up) when click outside
