@@ -404,7 +404,7 @@
 				$('form#contactForm').on('submit', function (e) {
 					e.preventDefault();
 					jQuery.ajax({
-						url: 'mail.php',
+						url: 'send_contact.php',
 						type: 'get',
 						data: jQuery('form#contactForm').serialize(),
 						complete: function (data) {

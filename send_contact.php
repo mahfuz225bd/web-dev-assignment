@@ -7,7 +7,7 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
 
 //Variables
 $name = $_GET['name'];
-$to = $_GET['email'];
+$from = $_GET['email'];
 $phoneNumber = $_GET['phone'];
 $subject = $_GET['subject'];
 $message = $_GET['message'];
@@ -22,12 +22,12 @@ $mail->Password = 'wfvnlcxcgdpgcccc';                   // SMTP password
 $mail->SMTPSecure = 'tls';                              // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587; //25                                 // TCP port to connect to
 
-$mail->setFrom("Mr. Mango Express", "thelionk91@gmail.com");
-$mail->addAddress($to, $name . ' - ' . $phoneNumber);   // Add a recipient
+$mail->setFrom($name, $from);
+$mail->addAddress("thelionk91@gmail.com");   // Add a recipient
 
 $mail->isHTML(true);
 $mail->Subject = $subject;
-$mail->Body    = $message . '<br/><br/>==============================<br/> Email: ' . $to . '<br/> Name: ' . $name . '<br/>Phone Number: ' . $phoneNumber;
+$mail->Body    = $message . '<br/><br/>==============================<br/> Email: ' . $from . '<br/> Name: ' . $name . '<br/>Phone Number: ' . $phoneNumber;
 
 if(!$mail->send()) {
     echo '<span class="loading text-danger text-left pl-4">';
