@@ -193,18 +193,18 @@
 			meanScreenWidth: '992',
 		});
 
-		// this will get the full URL at the address bar
-		var url = window.location.href;
+		// // this will get the full URL at the address bar
+		// var url = window.location.href;
 
-		// passes on every "a" tag
-		$('.main-menu a').each(function () {
-			// checks if its the same on the address bar
-			if (url == this.href) {
-				$(this).closest('li').addClass('active');
-				//for making parent of submenu active
-				$(this).closest('li').parent().parent().addClass('active');
-			}
-		});
+		// // passes on every "a" tag
+		// $('.main-menu a').each(function () {
+		// 	// checks if its the same on the address bar
+		// 	if (url == this.href) {
+		// 		$(this).closest('li').addClass('active');
+		// 		//for making parent of submenu active
+		// 		$(this).closest('li').parent().parent().addClass('active');
+		// 	}
+		// });
 
 		// search form
 		// $('.search-bar-icon').on('click', function () {
