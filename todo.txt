@@ -1,2 +1,1 @@
 - Shopping cart (Pop Up)
-- Checkout Form (Send Email)

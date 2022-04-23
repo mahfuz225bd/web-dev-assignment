@@ -111,6 +111,7 @@
 		<!-- check out section -->
 
 		<div class="checkout-section mt-150 mb-150">
+			<div id="form_status"></div>
 			<form id="checkoutForm">
 			<div class="container">
 				<div class="row">
@@ -140,10 +141,10 @@
 										data-parent="#accordionExample"
 									>
 										<div class="card-body">												
-													<p><input class="form-control form-control-lg" type="text" name="name" placeholder="Name" /></p>
+													<p><input class="form-control form-control-lg" type="text" name="name" placeholder="Name *" required /></p>
 													<p><input class="form-control form-control-lg" type="email" name="email" placeholder="Email" /></p>
-													<p><input class="form-control form-control-lg" type="text" name="billingAddress" placeholder="Address" /></p>
-													<p><input class="form-control form-control-lg" type="tel" name="phone" placeholder="Phone" /></p>
+													<p><input class="form-control form-control-lg" type="text" name="billingAddress" placeholder="Billing Address *" required /></p>
+													<p><input class="form-control form-control-lg" type="tel" name="phone" placeholder="Phone Number *" required /></p>
 													<p>
 														<textarea
 															class="form-control form-control-lg"
@@ -184,10 +185,10 @@
 													<textarea
 														class="form-control form-control-lg"
 														name="shippingAddress"
-														id="shippingAddress"
 														cols="30"
 														rows="5"
-														placeholder="Shipping Address"
+														placeholder="Shipping Address *"
+														required
 													></textarea>
 												</p>
 											</div>
@@ -221,9 +222,10 @@
 													<input
 														class="payment"
 														type="radio"
-														value="cod"
+														value="COD"
 														id="cod"
 														name="payment"
+														required
 													/>
 													<label class="form-check-label payment-label" for="cod">
 														Cash On Delivery
@@ -232,9 +234,10 @@
 													<input
 														class="payment"
 														type="radio"
-														value="credit-card"
+														value="Credit Card"
 														id="creditCard"
 														name="payment"
+														required
 													/>
 													<label class="form-check-label payment-label" for="creditCard">
 														Credit Cart
@@ -243,9 +246,10 @@
 													<input
 														class="payment"
 														type="radio"
-														value="bkash"
+														value="Bkash"
 														id="bkash"
 														name="payment"
+														required
 													/>
 													<label class="form-check-label payment-label" for="bkash">
 														Bkash
@@ -262,7 +266,7 @@
 
 					<div class="col-lg-4">
 						<div class="order-details-wrap">
-							<table class="order-details">
+							<table class="order-details" id="orderDetails">
 								<thead>
 									<tr>
 										<th>Your order Details</th>
@@ -302,11 +306,13 @@
 									</tr>
 								</tbody>
 							</table>
-							<a href="#" class="boxed-btn" id="placeOrder">Place Order</a>
+							<br/>
+							<button class="btn btn-success btn-lg" type="submit">Place Order</button>
 						</div>
 					</div>
 				</div>
 			</div>
+		<input type="hidden" id="hiddenOrderDetails" name="hiddenOrderDetails" value="Something">
 		</form>
 		</div>
 		<!-- end check out section -->
@@ -500,8 +506,11 @@
 		<script src="assets/js/sticker.js"></script>
 		<!-- send order -->
 		<script>
+			
 			$(document).ready(function () {
-				$('#placeOrder').on('click', function (e) {
+				$('#hiddenOrderDetails').val($('#orderDetails').html());
+
+				$('form#checkoutForm').on('submit', function (e) {					
 					e.preventDefault();
 					jQuery.ajax({
 						url: 'send_order.php',
@@ -512,10 +521,11 @@
 							jQuery('#checkoutForm').find('input,textarea').attr({ value: '' });
 							jQuery('#checkoutForm').css({ opacity: 1 });
 							jQuery('#checkoutForm').remove();
+							console.log(jQuery('form#checkoutForm'));
 						},
 					});
 					jQuery('#form_status').html(
-						'<span class="loading">Sending your message...</span>'
+						'<span class="loading">Sending your order...</span>'
 					);
 					jQuery('#checkoutForm').animate({ opacity: 0.3 });
 					jQuery('#checkoutForm')
