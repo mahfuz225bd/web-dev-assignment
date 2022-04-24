@@ -78,13 +78,24 @@
 		});
 
 		// toggle cart
-		const toggleCart = document.querySelector('#btnCart');
-		toggleCart.addEventListener('click', () => {
+		function toggleCart() {
 			const cartContainer = document.querySelector('.cart-area .container');
 			if (cartContainer.style.display === 'block') {
 				cartContainer.style.display = 'none';
 			} else {
 				cartContainer.style.display = 'block';
+			}
+		}
+
+		$('#btnCart').on('click', toggleCart);
+
+		// close cart when clicked outside of the cart container
+		$(document).mouseup(function(e) {
+			var container = $('.cart-area .container');
+			// if the target of the click isn't the container nor a descendant of the container
+			if (!container.is(e.target) && container.has(e.target).length === 0) 
+			{
+					container.hide();
 			}
 		});
 
