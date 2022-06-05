@@ -1,5 +1,5 @@
 # Project Assignment for Web Development (66643)
-We the student of 4th semester, 2nd shift, group b, made this project for final exam of Web Development (66643).
+We the student of 4th semester, 2nd shift, group B, made this project for final exam of Web Development (66643).
 
 ## Todos
 - Complete the Shopping Cart
