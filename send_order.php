@@ -13,7 +13,7 @@ $phoneNumber = $_GET['phone'];
 $note = $_GET['note'];
 $shippingAddress = $_GET['shippingAddress'];
 $payment = $_GET['payment'];
-$paymentDetails = $payment == 'mobileBanking' ? $_GET['mobileBankingAccount'] . ' - ' . $_GET['accType']. ' - ' . $_GET['accNumber'] .'<br />' : '';
+$paymentDetails = $payment == 'mobileBanking' ? $_GET['mobileBankingAccount'] . ' - ' . $_GET['accType'] . ' - ' . $_GET['accNumber'] . '<br />' : '';
 $orderDetails = $_GET['hiddenOrderDetails'];
 
 $message = sprintf("
@@ -49,11 +49,11 @@ $mail->isHTML(true);
 $mail->Subject = "A Order from " . $name . " - " . $phoneNumber;
 $mail->Body    = $message;
 
-if(!$mail->send()) {
+if (!$mail->send()) {
     echo '<span class="loading text-danger text-left pl-4">';
     echo 'Order could not be sent. <br/>';
-    echo 'Mailer Error: ' . $mail->ErrorInfo. '<a href="./checkout.html">Try again</a>.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo . '<a href="./checkout.html">Try again</a>.';
     echo '</span>';
 } else {
-    echo '<span class="loading text-success">Order have been sent successfully.</span>';
+    echo '<span class="loading text-success">Order has been sent successfully.</span>';
 }

@@ -418,6 +418,7 @@
 						type: 'get',
 						data: jQuery('form#contactForm').serialize(),
 						complete: function (data) {
+							console.log(data);
 							jQuery('#form_status').html(data.responseText);
 							jQuery('#contactForm').find('input,textarea').attr({ value: '' });
 							jQuery('#contactForm').css({ opacity: 1 });

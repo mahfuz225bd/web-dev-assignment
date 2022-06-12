@@ -35,5 +35,5 @@ if(!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo. '<a href="./contact.html">Try again</a>.';
     echo '</span>';
 } else {
-    echo '<span class="loading text-success">Message have been sent.</span>';
+    echo '<span class="loading text-success">Message has been sent.</span>';
 }
