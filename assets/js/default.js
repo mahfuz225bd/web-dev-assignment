@@ -103,6 +103,7 @@
 			var getUnitPrice = $(this).parent().find('.unit-price').text();
 			var getQty = Number($(this).val());
 			$(this).parent().find('.price').text(String(getUnitPrice * getQty));
+			$(this).parent().find('.kgs').text(String(getUnitPrice * getQty));
 		});
 		  
 		  
