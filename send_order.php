@@ -37,13 +37,13 @@ Order Details: <br/>
 $mail->isSMTP();                                        // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';                         // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                                 // Enable SMTP authentication
-$mail->Username = 'thelionk91@gmail.com';               // SMTP username
-$mail->Password = 'wfvnlcxcgdpgcccc';                   // SMTP password
+$mail->Username = 'mahfuz225bd@gmail.com';               // SMTP username
+$mail->Password = 'gxsxuwpzggbqdixm';                   // SMTP password
 $mail->SMTPSecure = 'tls';                              // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587; //25                                 // TCP port to connect to
 
 $mail->setFrom($name, $email);
-$mail->addAddress("thelionk91@gmail.com");              // Add a recipient
+$mail->addAddress("mahfuz225bd@gmail.com");              // Add a recipient
 
 $mail->isHTML(true);
 $mail->Subject = "A Order from " . $name . " - " . $phoneNumber;

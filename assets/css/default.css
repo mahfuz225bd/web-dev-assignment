@@ -2761,6 +2761,10 @@ table.order-details tbody td {
 	padding: 15px;
 }
 
+table.order-details tfoot th, table.order-details tfoot tr {
+	text-align: right;
+}
+
 .order-details-wrap > a {
 	margin-top: 30px;
 }
