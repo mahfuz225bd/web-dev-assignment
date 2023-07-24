@@ -426,7 +426,7 @@ p:last-child {
 }
 
 .green-text {
-	color: #02a145;
+	color: #02642D;
 }
 
 .blue-bg {
@@ -436,7 +436,7 @@ p:last-child {
 a.boxed-btn {
 	font-family: 'Poppins', sans-serif;
 	display: inline-block;
-	background-color: #02a145;
+	background-color: #02642D;
 	color: #fff;
 	padding: 10px 20px;
 }
@@ -445,7 +445,7 @@ a.bordered-btn {
 	font-family: 'Poppins', sans-serif;
 	display: inline-block;
 	color: #fff;
-	border: 2px solid #02a145;
+	border: 2px solid #02642D;
 	padding: 7px 20px;
 }
 
@@ -666,7 +666,7 @@ ul.sub-menu li:last-child {
 }
 
 .mean-bar a.meanmenu-reveal {
-	background-color: #02a145;
+	background-color: #02BB4F;
 }
 
 .main-menu-wrap {
@@ -988,12 +988,12 @@ h2.widget-title:after {
 }
 
 .copyright a {
-	color: #02a145;
+	color: #02BB50;
 	font-weight: 700;
 }
 
 .copyright a:hover {
-	color: #f59d53;
+	color: #F58429;
 }
 
 .social-icons ul {
@@ -1056,7 +1056,7 @@ a.boxed-btn {
 
 a.boxed-btn:hover {
 	background-color: #051922;
-	/* color: #02a145; */
+	color: #02642D;
 }
 
 a.bordered-btn {
@@ -1066,7 +1066,7 @@ a.bordered-btn {
 }
 
 a.bordered-btn:hover {
-	background-color: #02a145;
+	background-color: #02642D;
 	color: #fff;
 }
 
@@ -1288,7 +1288,7 @@ button.cart-btn {
 
 button.cart-btn:hover {
 	background-color: #051922;
-	color: #02a145;
+	color: #02642D;
 }
 
 .recent-posts ul li {
@@ -1604,7 +1604,7 @@ div.owl-controls,
 	letter-spacing: 0.5px;
 }
 
-.list-box .content h3 {
+.list-box .content h2 {
 	display: block;
 	line-height: 22px;
 	font-size: 18px;
@@ -1970,7 +1970,7 @@ span.comment-date {
 	margin-top: 8px;
 	text-align: center;
 	border-radius: 50%;
-	background-color: #02a145;
+	background-color: #02642D;
 }
 
 .cart-banner .image-column .price-box .inner-price .price {
@@ -2491,7 +2491,7 @@ p.product-price span {
 button.cart-btn {
 	font-family: 'Poppins', sans-serif;
 	display: inline-block;
-	background-color: #02a145;
+	background-color: #02642D;
 	color: #fff;
 	padding: 10px 20px;
 }
