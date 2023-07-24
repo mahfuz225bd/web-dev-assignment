@@ -2481,7 +2481,7 @@ p.product-price {
 	margin-bottom: 15px;
 }
 
-p.product-price span {
+p.product-price span.muted-text {
 	display: block;
 	opacity: 0.8;
 	font-size: 15px;

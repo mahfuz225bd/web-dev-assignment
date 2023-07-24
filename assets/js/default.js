@@ -90,24 +90,23 @@
 		$('#btnCart').on('click', toggleCart);
 
 		// close cart when clicked outside of the cart container
-		$(document).mouseup(function(e) {
+		$(document).mouseup(function (e) {
 			var container = $('.cart-area .container');
 			// if the target of the click isn't the container nor a descendant of the container
-			if (!container.is(e.target) && container.has(e.target).length === 0) 
-			{
-					container.hide();
+			if (!container.is(e.target) && container.has(e.target).length === 0) {
+				container.hide();
 			}
 		});
 
 		// change qty
-		$('#qtyInput').bind('keyup mouseup', function () {
-			var getUnitPrice = Number(
-				document.getElementById(this.id).parentNode.childNodes[2].innerHTML
-			);
-			var getQty = Number(this.value);
-			document.getElementById(this.id).parentNode.childNodes[4].innerHTML =
-				String(getUnitPrice * getQty);
+		$('.qty-input').bind('keyup mouseup', function () {
+			var getUnitPrice = $(this).parent().find('.unit-price').text();
+			var getQty = Number($(this).val());
+			$(this).parent().find('.price').text(String(getUnitPrice * getQty));
 		});
+		  
+		  
+		  
 
 		// count down
 		if ($('.time-countdown').length) {
@@ -118,10 +117,10 @@
 					var $this = $(this).html(
 						event.strftime(
 							'' +
-								'<div class="counter-column"><div class="inner"><span class="count">%D</span>Days</div></div> ' +
-								'<div class="counter-column"><div class="inner"><span class="count">%H</span>Hours</div></div>  ' +
-								'<div class="counter-column"><div class="inner"><span class="count">%M</span>Mins</div></div>  ' +
-								'<div class="counter-column"><div class="inner"><span class="count">%S</span>Secs</div></div>'
+							'<div class="counter-column"><div class="inner"><span class="count">%D</span>Days</div></div> ' +
+							'<div class="counter-column"><div class="inner"><span class="count">%H</span>Hours</div></div>  ' +
+							'<div class="counter-column"><div class="inner"><span class="count">%M</span>Mins</div></div>  ' +
+							'<div class="counter-column"><div class="inner"><span class="count">%S</span>Secs</div></div>'
 						)
 					);
 				});
@@ -152,6 +151,10 @@
 		// 	preloader: false,
 		// 	fixedContentPos: false,
 		// });
+
+		$('.cart-btn').click(function () {
+			console.log($(this).closest('.single-product-item').html());
+		});
 
 		// disabled cart-btn
 		$('.cart-btn[disabled]').each(function () {
