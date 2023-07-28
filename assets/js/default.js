@@ -104,10 +104,7 @@
 			var getQty = Number($(this).val());
 			$(this).parent().find('.price').text(String(getUnitPrice * getQty));
 			$(this).parent().find('.kgs').text(String(getUnitPrice * getQty));
-		});
-		  
-		  
-		  
+		}); 
 
 		// count down
 		if ($('.time-countdown').length) {
@@ -154,6 +151,7 @@
 		// });
 
 		$('.cart-btn').click(function () {
+			// Adding Product or Update quantity to Shopping Cart
 			console.log($(this).closest('.single-product-item').html());
 		});
 
