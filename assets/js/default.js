@@ -104,7 +104,7 @@
 			var getQty = Number($(this).val());
 			$(this).parent().find('.price').text(String(getUnitPrice * getQty));
 			$(this).parent().find('.kgs').text(String(getUnitPrice * getQty));
-		}); 
+		});
 
 		// count down
 		if ($('.time-countdown').length) {
@@ -152,7 +152,41 @@
 
 		$('.cart-btn').click(function () {
 			// Adding Product or Update quantity to Shopping Cart
-			console.log($(this).closest('.single-product-item').html());
+			const tempCartItem = (productName, quantity, unitPrice) => `<p class="cartItem">
+			<a href="#">${productName} </a><span class="price"><input type="number" class="qty-input" min="1" value="${quantity}" aria-label="Price Quantity" /> x &#2547;<span class="unit-price">${unitPrice}</span> = &#2547;<output class="price">${unitPrice * quantity}</output></span>
+			</p>`
+
+			const singleProduct = $(this).closest('.single-product-item')
+
+			const productName = $(singleProduct).find('h3')[0].innerText + " 20kg"
+			const availableQuantity = $(singleProduct).data('availableQty')
+			const unitPrice = $(singleProduct).find('.price-value')[0].innerText
+
+			if (Number(availableQuantity) > 0) {
+				// $("#cartItems").html("Testing")
+				// console.log(productName, availableQuantity, unitPrice);
+				let found = false
+
+				$('#cartItems .product-name').each(function () {
+					if (this.innerText === productName) {
+						found = true
+					}
+				})
+
+				if (!found) {
+					$('#cartItems').append(tempCartItem(productName, 1, unitPrice))
+				} else {
+					$('#cartItems .product-name').each(function () {
+						if (this.innerText === productName) {
+							// Updating quantity
+						}
+					})
+				}
+
+				// Updating count
+
+				// Updating total
+			}
 		});
 
 		// disabled cart-btn
